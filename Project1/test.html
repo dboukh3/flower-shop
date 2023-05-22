@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  
+  <div id="products">
+    <h2>Products</h2>
+    <ul>
+      <li>
+        <span>Flower 1 - $10.99</span>
+        <button onclick="addToCart('Flower 1', 10.99)">Add to Cart</button>
+      </li>
+      <li>
+        <span>Flower 2 - $8.99</span>
+        <button onclick="addToCart('Flower 2', 8.99)">Add to Cart</button>
+      </li>
+      <!-- Add more product items here -->
+    </ul>
+  </div>
+  
+  <div id="cart">
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+  </div>
+  
+  <script>
+    // Cart storage
+    let cartItems = [];
+
+    // Function to add items to the cart
+    function addToCart(productName, price) {
+      const item = {
+        name: productName,
+        price: price
+      };
+      cartItems.push(item);
+      
+      // Update the cart display
+      const cartItemsElement = document.getElementById("cartItems");
+      const listItem = document.createElement("li");
+      listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+      cartItemsElement.appendChild(listItem);
+    }
+  </script>
+</body>
+</html>

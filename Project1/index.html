@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script.js"></script>
+    <title> Flower Shop </title>
+</head>
+
+<body>
+    <header>
+        <input type="checkbox" name="" id="toggle">
+        <label for="toggle" class="fas fa-bars"></label>
+
+        <a href="index.html" class="logo"> Florella<span>.</span></a>
+
+        <div class="navbar">
+            <a href="#index.html"> Home </a>
+            <a href="about.html"> About </a>
+            <a href="products.html"> Products </a>
+            <a href="products.html#reviews"> Reviews </a>
+            <a href="contacts.html"> Contact </a>
+        </div>
+
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+        </div>
+
+        <div class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <div class="content">
+            <h3> Fresh Flowers </h3>
+
+            <span> Natural & Beautiful Flowers </span>
+
+            <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident, aspernatur alias est veniam quidem repellat
+            veritatis non perferendis. Provident, modi? </p>
+
+            <a href="products.html" class="btn"> Shop now </a>
+        </div>
+    </section>
+    <h1>Shopping Cart</h1>
+  
+  <div id="products">
+    <h2>Products</h2>
+    <ul>
+      <li>
+        <span>Flower 1 - $10.99</span>
+        <button onclick="addToCart('Flower 1', 10.99)">Add to Cart</button>
+      </li>
+      <li>
+        <span>Flower 2 - $8.99</span>
+        <button onclick="addToCart('Flower 2', 8.99)">Add to Cart</button>
+      </li>
+      <!-- Add more product items here -->
+    </ul>
+  </div>
+  
+  <div id="cart">
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+  </div>
+  
+  <script>
+    // Cart storage
+    let cartItems = [];
+
+    // Function to add items to the cart
+    function addToCart(productName, price) {
+      const item = {
+        name: productName,
+        price: price
+      };
+      cartItems.push(item);
+      
+      // Update the cart display
+      const cartItemsElement = document.getElementById("cartItems");
+      const listItem = document.createElement("li");
+      listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+      cartItemsElement.appendChild(listItem);
+    }
+  </script>
+
+</body>
+</html>
